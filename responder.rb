@@ -1,3 +1,5 @@
+require 'timeout'
+
 class BotStrategy
   attr_reader :responder, :was_asked
 
@@ -279,7 +281,9 @@ class Responder
             location: location.to_h,
             author: contact.to_h}
     opts[:created_at] = opts[:updated_at] = Time.now.to_i
-    HTTParty.post("http://localhost:3000/issues", body: opts)
+    Timeout::timeout(5) do
+      HTTParty.post("http://localhost:3000/issues", body: opts)
+    end
 
     instance_variables.each do |i|
       instance_variable_set(i, nil)
