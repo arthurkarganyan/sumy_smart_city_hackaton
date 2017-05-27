@@ -1,7 +1,6 @@
 require 'bundler'
 Bundler.require(:default)
 require 'telegram/bot'
-require_relative 'user.rb'
 require_relative "responder.rb"
 
 BOT_TOKEN = "353654051:AAGWb0BKYs8STk4AonC87cr5Z_zDURK9hzA"
