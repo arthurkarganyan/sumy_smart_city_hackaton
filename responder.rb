@@ -279,7 +279,7 @@ class Responder
             location: location.to_h,
             author: contact.to_h}
     opts[:created_at] = opts[:updated_at] = Time.now.to_i
-    HTTParty.post("http://192.168.1.199:3000/issues", body: opts)
+    HTTParty.post("http://54.164.108.6:3000/issues", body: opts)
 
     instance_variables.each do |i|
       instance_variable_set(i, nil)
