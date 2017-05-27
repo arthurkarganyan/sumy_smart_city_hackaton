@@ -1,0 +1,6 @@
+.powrc
+.bundle
+tmp
+log
+.idea
+*.swp
