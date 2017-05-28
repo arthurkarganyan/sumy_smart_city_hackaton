@@ -279,10 +279,10 @@ class Responder
             description: problem_text,
             address: address}
     contact.to_h.each do |k,v|
-      opts[("author_" + k).to_sym] = v
+      opts[("author_" + k.to_s).to_sym] = v
     end
     location.to_h.each do |k,v|
-      opts[("location_" + k).to_sym] = v
+      opts[("location_" + k.to_s).to_sym] = v
     end
     opts[:created_at] = opts[:updated_at] = Time.now.to_i
     Timeout::timeout(5) do
