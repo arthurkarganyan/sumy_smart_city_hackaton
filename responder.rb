@@ -277,9 +277,13 @@ class Responder
             photo_path: photo_path,
             state: 'Waiting Moderation',
             description: problem_text,
-            address: address,
-            location: location.to_h,
-            author: contact.to_h}
+            address: address}
+    contact.to_h.each do |k,v|
+      opts[("author_" + k).to_sym] = v
+    end
+    location.to_h.each do |k,v|
+      opts[("location_" + k).to_sym] = v
+    end
     opts[:created_at] = opts[:updated_at] = Time.now.to_i
     Timeout::timeout(5) do
       HTTParty.post("http://localhost:3000/issues", body: opts)
