@@ -12,7 +12,7 @@ require_relative "app/location_asker.rb"
 require_relative "app/phone_asker.rb"
 require_relative "app/photo_asker.rb"
 
-BOT_TOKEN = "353654051:AAGWb0BKYs8STk4AonC87cr5Z_zDURK9hzA"
+BOT_TOKEN = ENV["BOT_TOKEN"]
 
 $responders = []
 
