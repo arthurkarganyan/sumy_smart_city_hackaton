@@ -230,10 +230,6 @@ class Responder
     responder
   end
 
-  def message
-    msg
-  end
-
   def strategies
     [HelloSayer, DescriptionAsker, PhotoAsker, LocationAsker, AddressAsker, PhoneAsker]
   end
