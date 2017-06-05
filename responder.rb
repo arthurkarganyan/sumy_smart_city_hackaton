@@ -1,5 +1,6 @@
 class Responder
   attr_reader :bot, :msg, :chat_id
+  attr_writer :msg # for find_or_create
   attr_accessor :address, :problem_text
 
   def initialize(bot, msg)
@@ -70,9 +71,9 @@ class Responder
       opts[("location_" + k.to_s).to_sym] = v
     end
     opts[:created_at] = opts[:updated_at] = Time.now.to_i
-    Timeout::timeout(5) do
-      HTTParty.post("http://localhost:3000/issues", body: opts)
-    end
+    # Timeout::timeout(5) do
+    #   HTTParty.post("http://localhost:3000/issues", body: opts)
+    # end
 
     instance_variables.each do |i|
       instance_variable_set(i, nil)
