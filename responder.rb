@@ -210,7 +210,6 @@ end
 
 class Responder
   attr_reader :bot, :msg, :chat_id
-  attr_writer :msg
   attr_accessor :address, :problem_text
 
   def initialize(bot, msg)
