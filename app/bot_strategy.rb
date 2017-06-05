@@ -77,6 +77,6 @@ class BotStrategy
   end
 
   def text
-    msg.text.strip
+    msg&.text&.strip
   end
 end
